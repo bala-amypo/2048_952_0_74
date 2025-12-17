@@ -8,5 +8,28 @@ public class Student {
     private String dept;
     private LocalDate dob;
     private float cgpa;
-    
+    public Long getId(){
+        return id;
+    }
+    public void setId(Long id){
+        this.id=id;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getDept(){
+        return dept;
+    }
+    public void setName(String dept){
+        this.dept=dept;
+    }
+    public String getDob(){
+        return dept;
+    }
+    public void setName(String dept){
+        this.dept=dept;
+    }
 }
