@@ -1,28 +1,30 @@
-package com.example.demo.service.impl;
+package com.example.demo.Service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.repository.StudentRepository;
-import org.springframework.stereotype.Service;
-
-import com.example.demo.service.StudentService;
 import com.example.demo.entity.Student;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.example.demo.repository.StudentRepository;
+import com.example.demo.service.StudentService;
+
 @Service
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentRepository stdrepo;
     @Override
+
     public Student poststudent(Student st){
         return stdrepo.save(st);
     }
     @Override
-    public List<Student>getAllStudents(){
+    public List<Student> getAllStudents(){
         return stdrepo.findAll();
     }
     @Override
     public Optional<Student> getById(Long id){
-       return stdrepo.findById(id);
+        return stdrepo.findById(id);
     }
     @Override
     public String updateData(Long id,Student st){
@@ -30,10 +32,10 @@ public class StudentServiceImpl implements StudentService {
         if(status){
             st.setId(id);
             stdrepo.save(st);
-            return"Student updated successfully";
+            return "Student updated successfully";
         }
         else{
-            return"Student with ID "+id+" not found"; 
+            return "Student with ID "+id+" not found";
         }
     }
 }
