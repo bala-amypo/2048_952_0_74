@@ -1,20 +1,27 @@
-package com.example.demo.config;
+package com.example.demo.controller;
 
-import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.servers.Server;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
-@Configuration
-public class SwaggerConfig {
+import com.example.demo.entity.Student;
+import com.example.demo.service.StudentService;
 
-    @Bean
-    public OpenAPI customOpenAPI() {
-        return new OpenAPI()
-                // You need to change the port as per your server
-                .servers(List.of(
-                        new Server().url("https://9181.pro604cr.amypo.ai/")
-                ));
-        }
+@RestController
+public class StudentController {
+    @Autowired
+    StudentService stdser;
+    @PostMapping("/addStudent")
+    public Student addStudent(@RequestBody Student st){
+        return stdser.poststudent(st);
+    }
+    @GetMapping("/getall")
+    public List<Student> get(){
+        return stdser.getAllStudents();
+    }
+    @GetMapping("/getById/id")
+    public Optional<Student> getId(@PathVariable Long id){
+        return stdser.getById(id);
+    }
 }
