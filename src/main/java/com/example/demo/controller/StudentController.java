@@ -14,6 +14,7 @@ import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 
 @RestController
+@RequestMapping("/student")
 public class StudentController {
     @Autowired 
     StudentService stdser;
