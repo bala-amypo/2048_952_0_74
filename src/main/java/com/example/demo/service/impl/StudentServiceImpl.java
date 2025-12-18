@@ -1,8 +1,10 @@
 package com.example.demo.service.impl;
+import java.util.List;
+import java.util.Optional;
 
 import com.example.demo.repository.StudentRepository;
 import org.springframework.stereotype.Service;
-import java.util.*;
+
 import com.example.demo.service.StudentService;
 import com.example.demo.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +28,9 @@ public class StudentServiceImpl implements StudentService {
     public String updateData(Long id,Student st){
         boolean status=stdrepo.existsById(id);
         if(status){
-            
+            st.setId(id);
+            stdrepo.sava(st);
+            return "Student
         }
     }
 }
