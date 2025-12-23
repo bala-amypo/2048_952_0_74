@@ -13,7 +13,12 @@ import com.example.demo.service.StudentService;
 public class StudentServiceImpl implements StudentService {
     @Autowired
     StudentRepository stdrepo;
-    @Tran
+    @Transactional(rollbackFor = DummyException.class)
+    @Override
+    public Student addStudent(Student st){
+        sr.save(st);
+        if(st.getName().equals(anObject="abcd")){
+            }
     @Override
 
     public Student poststudent(Student st){
