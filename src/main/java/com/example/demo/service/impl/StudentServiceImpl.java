@@ -18,7 +18,10 @@ public class StudentServiceImpl implements StudentService {
     public Student addStudent(Student st){
         sr.save(st);
         if(st.getName().equals(anObject="abcd")){
-            }
+            throw new DummyException(msg: "Testing");
+        }
+        return st;
+    }
     @Override
 
     public Student poststudent(Student st){
